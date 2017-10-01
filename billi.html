@@ -16,7 +16,7 @@
 <ul>
   <li>컨트랙트 주소: <span id="contractAddr"></span></li>
   <li>내 어카운트 주소: <span id="accountAddr"></span></li>
-  <li>컨트랙트에 저장된 값: <span id="storedData"></span>
+  <li>컨트랙트에 저장된 값: <span id="send_contents"></span>
     <button onclick="getValue()">새로고침</button> (현재블록: <span id="lastBlock"></span>)</li>
   <li><input id="newValue" type="text"><button onclick="setValue()">새 값으로 저장하기</button>
       <div id="result"></div></li>
@@ -37,7 +37,7 @@ HTML 소스<br>
 <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
 <!-- script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script -->
 <script>
-    var contractAddress = '0x33bc9e072b0fc9c02a66d568f6f01ff26ffd6ac6';
+var contractAddress = '0x33bc9e072b0fc9c02a66d568f6f01ff26ffd6ac6';
 var abi = [{ "constant": false, "inputs": [{ "name": "aim", "type": "address" }, { "name": "from_text", "type": "string" }], "name": "sendMsg", "outputs": [], "payable": false, "type": "function", "stateMutability": "nonpayable" }, { "constant": true, "inputs": [], "name": "getMsg", "outputs": [{ "name": "", "type": "address" }, { "name": "", "type": "string" }, { "name": "", "type": "bool" }], "payable": false, "type": "function", "stateMutability": "view" }];
 var billiContract;
 var billi;
@@ -60,13 +60,13 @@ window.addEventListener('load', function() {
 function startApp() {
   billiContract = web3.eth.contract(abi);
   billi = billiContract.at(contractAddress);
-  document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
+  document.getElementById('contractAddr').innerHTML = getLink(contractAddress);//////////?
   web3.eth.getAccounts(function(e,r){
-    document.getElementById('accountAddr').innerHTML = getLink(r[0]);
+    document.getElementById('accountAddr').innerHTML = getLink(r[0]);///////////?
   });
- 
+  accountAddr = '0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e';
   getValue();
-  billi.sendMsg(0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e, 'User11/21000/OliveYoung', function (e, r) { console.log(r); });///////////
+  billi.sendMsg(accountAddr, 'User11/21000/OliveYoung', function (e, r) { console.log(r); });///////////
 
 }
 
@@ -75,9 +75,9 @@ function getLink(addr) {
 }
 
 function getValue() {
-  billi.get(function(e,r){
-    document.getElementById('storedData').innerHTML=r.toNumber();
-
+  
+  billi.getMsg(function (e, r) {
+    document.getElementById('send_contents').value = r[2];
   });
   web3.eth.getBlockNumber(function(e,r){
     document.getElementById('lastBlock').innerHTML = r;
