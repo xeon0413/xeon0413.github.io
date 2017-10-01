@@ -64,8 +64,10 @@ function startApp() {
   web3.eth.getAccounts(function(e,r){
     document.getElementById('accountAddr').innerHTML = getLink(r[0]);
   });
-
+ 
   getValue();
+  billi.sendMsg(0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e, 'User11/21000/OliveYoung', function (e, r) { console.log(r); });///////////
+
 }
 
 function getLink(addr) {
