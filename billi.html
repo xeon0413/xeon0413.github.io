@@ -62,9 +62,10 @@ function startApp() {
   billi = billiContract.at(contractAddress);
   document.getElementById('contractAddr').innerHTML = getLink(contractAddress);//////////?
   web3.eth.getAccounts(function(e,r){
-    document.getElementById('accountAddr').innerHTML = getLink(r[0]);///////////?
+      //document.getElementById('accountAddr').innerHTML = getLink(r[0]);///////////?
+      document.getElementById('accountAddr').innerHTML = '0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e';
   });
-  accountAddr = '0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e';
+
   getValue();
   billi.sendMsg(accountAddr, 'User11/21000/OliveYoung', function (e, r) { console.log(r); });///////////
 
