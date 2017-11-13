@@ -7,42 +7,49 @@
         <script type="text/javascript" src="js/modal.js"></script>
         <script type="text/javascript" src="js/clipboard.js"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Billi Blockchain upload</title>
+        <title>ETH Messanger Project Alpha</title>
     </head>
 
     <body>
 
-      
+        <div class="account_form">
+                <div class="account_box">
+                    <img class="account_img" src="svg/ethereum.svg"/>
+                </div>
+                <div class="account_address_form">
+                    <span id="account_no_address">You don't have metamask<br><br>Please, install <a href="https://metamask.io/" target="_blank">metamask</a> using <a href="https://www.google.co.kr/chrome/browser/desktop/index.html" target="_blank">chrome</a></span>
+                </div>
+        </div>
 
-        <button class="send_modal">
+        <button id="send_modal">
             <img id="send_modal_img" src="svg/paper-plane.svg"/>
         </button>
 
-        <div id="send_form">
+        <dialog id="send_form">
             <span id="send_title">ETH Smart Contract Messanger</span>
             <button class="send_form_close">
                 <img id="send_form_close_img" src="svg/close.svg"/>
             </button>
-            
+            <input id="receive_address" type="text" placeholder="To Address" maxlength="42">
             <textarea id="receive_contents" type="text" placeholder="Message Contents" style="resize:none"></textarea>
             <button class="send">
                 <img id="send_img" src="svg/paper-plane-colored.svg"/>
             </button>
-        </div>
+        </dialog>
 
         <button id="receive_modal">
             <img id="receive_img" src="svg/post.svg"/>
             <img id="receive_new_img" src="svg/new.svg"/>
         </button>
 
-        <div class="receive_form">
+        <dialog id="receive_form">
             <span id="receive_title">ETH Smart Contract Messanger</span>
             <input id="send_address" type="text" readonly>
             <textarea id="send_contents" type="text" style="resize:none" readonly></textarea>
             <button class="receive_form_close">
                 <img id="receive_img" src="svg/check.svg"/>
             </button>
-        </div>
+        </dialog>
 
     </body>
 </html>
