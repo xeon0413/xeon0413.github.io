@@ -28,9 +28,9 @@ window.onload = function () {
   for (var i = 0; i < sendBtns.length; i++) {
         sendBtns[i].addEventListener('click', function(e) {
 
-           var address = document.getElementById('receive_address').value;
+           //var address = document.getElementById('receive_address').value;
     
-          //var address= "0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e";
+          var address= '0x1359821c5a98e7d5aab0fa3819a47b74e0411b2e';
           if(address.search(/0x[a-zA-Z0-9]{40}/) != -1) {
          
         
