@@ -43,8 +43,8 @@ window.onload = function () {
               sendMessage = web3.eth.contract(abi).at(contractAddress);
               sendMessage.sendMsg(address, document.getElementById('receive_contents').value, {gasPrice:web3.toWei(2, 'Gwei')}, function(e,r) {
 
-                alert("TXID Copy to clipboard: Ctrl+C, Enter\n" + r);
-
+              //  alert("TXID Copy to clipboard: Ctrl+C, Enter\n" + r);
+                  alert(r);
               });
 
               document.getElementById('receive_address').value = "";
